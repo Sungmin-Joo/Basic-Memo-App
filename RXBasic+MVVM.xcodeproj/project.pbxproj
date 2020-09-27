@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CE29FA05251FA77200530F8B /* FloatingMenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE29FA04251FA77200530F8B /* FloatingMenuModel.swift */; };
+		CE2AB4762520E19B00ED5B8A /* mockData.json in Resources */ = {isa = PBXBuildFile; fileRef = CE2AB4752520E19B00ED5B8A /* mockData.json */; };
+		CE2AB47C2520E24600ED5B8A /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2AB47B2520E24600ED5B8A /* TestModel.swift */; };
 		CE55887C251A655F00EB8393 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55887B251A655F00EB8393 /* Protocols.swift */; };
 		CE55887F251A659C00EB8393 /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE55887E251A659C00EB8393 /* NSObject+Extension.swift */; };
 		CE558881251A685B00EB8393 /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE558880251A685B00EB8393 /* BaseCell.swift */; };
@@ -44,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		CE29FA04251FA77200530F8B /* FloatingMenuModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingMenuModel.swift; sourceTree = "<group>"; };
+		CE2AB4752520E19B00ED5B8A /* mockData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mockData.json; sourceTree = "<group>"; };
+		CE2AB47B2520E24600ED5B8A /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		CE55887B251A655F00EB8393 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		CE55887E251A659C00EB8393 /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
 		CE558880251A685B00EB8393 /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
@@ -148,7 +152,9 @@
 			isa = PBXGroup;
 			children = (
 				CE71D37825197C2E006523A6 /* RXBasic_MVVMUITests.swift */,
+				CE2AB47B2520E24600ED5B8A /* TestModel.swift */,
 				CE71D37A25197C2E006523A6 /* Info.plist */,
+				CE2AB4752520E19B00ED5B8A /* mockData.json */,
 			);
 			path = "RXBasic+MVVMUITests";
 			sourceTree = "<group>";
@@ -311,6 +317,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2AB4762520E19B00ED5B8A /* mockData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +353,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE2AB47C2520E24600ED5B8A /* TestModel.swift in Sources */,
 				CE71D37925197C2E006523A6 /* RXBasic_MVVMUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
