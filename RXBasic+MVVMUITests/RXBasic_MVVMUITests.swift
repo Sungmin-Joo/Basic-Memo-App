@@ -40,4 +40,28 @@ class RXBasic_MVVMUITests: XCTestCase {
             }
         }
     }
+
+    func testMockData() {
+        let testModel: [MemoModel] = decodeJsonData(jsonFileName: "mockData")
+        testModel.forEach {
+            XCTAssertFalse($0.id < 0, "id value must be greater than zero")
+        }
+    }
+
+    func decodeJsonData<T: Codable>(jsonFileName fileName: String) -> T {
+        var data = Data()
+        let filename = "\(fileName).json"
+
+        guard let file = Bundle(for: type(of: self)).url(forResource: filename, withExtension: nil) else {
+            fatalError("[Error]: decodeJsonData - Json File Not Found")
+        }
+
+        do {
+            data = try Data(contentsOf: file)
+            return try JSONDecoder().decode(T.self, from: data)
+        } catch {
+            fatalError("[Error]: \(error)")
+        }
+    }
 }
+
