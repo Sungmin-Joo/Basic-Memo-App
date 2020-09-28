@@ -6,22 +6,22 @@
 //  Copyright © 2020 sungmin.joo. All rights reserved.
 //
 
-import UIKit
+import RxSwift
 
 protocol SearchResultPresentable {
     /// 검색 시작 전 검색결과 TableView 노출
     func searchWillStart() -> Void
-    /// 검색 중 텍스트 변경
-    /// - Parameter text: 유효한 검색어를 전달
-    func searchResultWillChange(text: String) -> Void
     /// 검색 종료 후 검색결과 TableView 숨기고 메인 CollectionView 노출
     func searchDidEnd() -> Void
 }
 
+// MARK: - 현재 검색 결과 까지는 RX사용
 final class HomeViewController: UIViewController {
-    typealias ViewModelType = ViewDataContainable & ListDataContainable
+    typealias ViewModelType = ViewDataContainable & ListDataContainable & SearchDataContainable
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var searchResultTableView: UITableView!
 
+    let disposeBag = DisposeBag()
     var viewModel: ViewModelType = HomeViewModel()
 
     override func viewDidLoad() {
@@ -30,6 +30,7 @@ final class HomeViewController: UIViewController {
         setupNavigationBar()
         setupTableView()
         setupCompletion()
+        setupSearchData()
     }
 
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
@@ -73,10 +74,13 @@ extension HomeViewController {
         tableView.delegate = self
         tableView.dataSource = self
 
-        tableView.register(MemoCell.self,
-                           forCellReuseIdentifier: HomeConst.Identifier.memo.rawValue)
-        tableView.register(BaseCell.self,
-                           forCellReuseIdentifier: HomeConst.Identifier.base.rawValue)
+        tableView
+            .register(MemoCell.self, forCellReuseIdentifier: HomeConst.Identifier.memo.rawValue)
+        tableView
+            .register(BaseCell.self, forCellReuseIdentifier: HomeConst.Identifier.base.rawValue)
+
+        searchResultTableView
+            .register(MemoCell.self,forCellReuseIdentifier: HomeConst.Identifier.memo.rawValue)
     }
 
     private func setupCompletion() {

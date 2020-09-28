@@ -7,7 +7,7 @@
 //  Copyright © 2020 sungmin.joo. All rights reserved.
 //
 
-import Foundation
+import RxSwift
 
 final class HomeViewModel: ViewDataContainable {
 
@@ -16,7 +16,9 @@ final class HomeViewModel: ViewDataContainable {
         case list
     }
 
+    let searchResultCellModels = BehaviorSubject<[MemoCellModel]>(value: [])
     private var cellModels: [HomeSectionType: [CellDataContainable]] = [:]
+    private var preSearchData: String?
     var didFetchViewData: (() -> Void)?
 
 }
@@ -52,10 +54,44 @@ extension HomeViewModel: ListDataContainable {
     func cellModelForRowAt(_ indexPath: IndexPath) -> CellDataContainable? {
         guard
             let sectionType = HomeSectionType.init(rawValue: indexPath.section) else {
-            return nil
+                return nil
         }
 
         return cellModels[sectionType]?[safe: indexPath.row]
+    }
+}
+
+extension HomeViewModel: SearchDataContainable {
+
+    func clearSearchResult() {
+        searchResultCellModels.onNext([])
+    }
+
+    func didChangeSearchText(_ text: String) {
+        let searchText = text.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        guard preSearchData != searchText else {
+            return
+        }
+        preSearchData = searchText
+
+        // 태그와 제목 검색
+        // 결과 데이터는 시간순 정렬
+
+        let searchResult = MemoDataManager.shared.memoDatas
+            .filter { $0.title.lowercased().components(separatedBy: " ").contains(find: searchText) }
+            .sorted { $0 < $1 }
+
+
+        // 추후 set 사용하여 통합
+        let tagResult = MemoDataManager.shared.memoDatas
+            .filter { $0.tag.map { $0.lowercased() }.contains(find: searchText) }
+            .sorted { $0 < $1 }
+
+
+        searchResultCellModels.onNext(
+            searchResult.map { MemoCellModel(text: $0.title) }
+        )
     }
 }
 
@@ -78,12 +114,30 @@ extension HomeViewModel {
     }
 
     func setupTestData() {
-        let testModel: [MemoModel] = decodeJsonData(jsonFileName: "mockData")
-        debugPrint(testModel)
-        cellModels[.list] = testModel.map { MemoCellModel(text: $0.title) }
-        cellModels[.pinned] = testModel.filter { $0.isPinned }
+
+        cellModels[.list] = MemoDataManager.shared.memoDatas
             .map { MemoCellModel(text: $0.title) }
+
+        cellModels[.pinned] = MemoDataManager.shared.memoDatas
+            .filter {$0.isPinned }
+            .map { MemoCellModel(text: $0.title) }
+
         didFetchViewData?()
+    }
+
+}
+
+private extension BidirectionalCollection where Element: StringProtocol {
+
+    func contains(find: Element) -> Bool {
+
+        for word in self {
+            if (word.range(of: find) != nil) {
+                return true
+            }
+        }
+
+        return false
     }
 
 }

@@ -19,18 +19,27 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <tableView clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zdU-Vn-RwC">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Z02-me-5xL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="8UK-mr-DrN"/>
+                            <constraint firstItem="zdU-Vn-RwC" firstAttribute="top" secondItem="Z02-me-5xL" secondAttribute="top" id="9Bb-NB-rsW"/>
+                            <constraint firstItem="zdU-Vn-RwC" firstAttribute="leading" secondItem="Z02-me-5xL" secondAttribute="leading" id="Lpf-2q-gJ6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Z02-me-5xL" secondAttribute="trailing" id="TNZ-Wq-Tgi"/>
                             <constraint firstItem="Z02-me-5xL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="UrY-tw-ML0"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Z02-me-5xL" secondAttribute="bottom" id="X9A-1U-ZIA"/>
+                            <constraint firstItem="zdU-Vn-RwC" firstAttribute="bottom" secondItem="Z02-me-5xL" secondAttribute="bottom" id="bqn-hl-5jw"/>
+                            <constraint firstItem="zdU-Vn-RwC" firstAttribute="trailing" secondItem="Z02-me-5xL" secondAttribute="trailing" id="c5V-oS-1Zr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="EsI-0D-JgI"/>
                     <connections>
+                        <outlet property="searchResultTableView" destination="zdU-Vn-RwC" id="BkA-FS-R2M"/>
                         <outlet property="tableView" destination="Z02-me-5xL" id="011-Lv-57b"/>
                     </connections>
                 </viewController>
