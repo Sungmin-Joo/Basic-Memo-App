@@ -6,10 +6,11 @@
 //  Copyright © 2020 sungmin.joo. All rights reserved.
 //
 
-import Foundation
+import RxSwift
 
 // TODO: - ViewModel 프로토콜 이름 개선
 protocol ViewDataContainable {
+    var searchResultCellModels: BehaviorSubject<[MemoCellModel]>{ get }
     var didFetchViewData: (() -> Void)? { get set }
 }
 
@@ -18,6 +19,11 @@ protocol ListDataContainable {
     func titleForSection(_ section: Int) -> String?
     func numberOfRowsInSection(_ section: Int) -> Int
     func cellModelForRowAt(_ indexPath: IndexPath) -> CellDataContainable?
+}
+
+protocol SearchDataContainable {
+    func clearSearchResult()
+    func didChangeSearchText(_ text: String)
 }
 
 // TODO: - CellViewModel 프로토콜 이름 개선
