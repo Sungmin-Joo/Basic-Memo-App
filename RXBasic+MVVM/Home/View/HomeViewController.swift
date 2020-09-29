@@ -67,7 +67,10 @@ extension HomeViewController {
         searchBar.placeholder = HomeConst.Text.search.rawValue
         searchBar.delegate = self
         searchBar.showsCancelButton = false
+
         navigationItem.titleView = searchBar
+
+        navigationController?.navigationBar.barTintColor = view.backgroundColor
     }
 
     private func setupTableView() {

@@ -43,9 +43,10 @@ class MemoCell: BaseCell {
     }
 
     private func initialize() {
-        let layoutGuide = contentView.safeAreaLayoutGuide
 
         contentView.addSubview(titleLabel)
+
+        let layoutGuide = contentView.safeAreaLayoutGuide
 
         // 혹시나 타이틀이 없는 메뉴가 들어왔을 경우를 대비하여 최소 label 크기를 정의
         let textLavelHeight = titleLabel.heightAnchor.constraint(
