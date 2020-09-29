@@ -68,7 +68,7 @@ extension HomeViewModel: SearchDataContainable {
     }
 
     func didChangeSearchText(_ text: String) {
-        let searchText = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        let searchText = text.lowercased().trimmingCharacters(in: .whitespacesAndNewlines)
 
         guard preSearchData != searchText else {
             return
