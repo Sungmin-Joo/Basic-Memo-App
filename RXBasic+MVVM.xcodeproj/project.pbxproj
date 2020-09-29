@@ -35,6 +35,8 @@
 		CE71D39E251A3A17006523A6 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D39C251A3A17006523A6 /* MemoCell.swift */; };
 		CE71D3A1251A42C5006523A6 /* HomeViewController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D3A0251A42C5006523A6 /* HomeViewController+UITableView.swift */; };
 		CECA6DF425220D1600C19F12 /* MemoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA6DF325220D1600C19F12 /* MemoDataManager.swift */; };
+		CECA6E00252394BA00C19F12 /* MemoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA6DFE252394BA00C19F12 /* MemoDetailViewController.swift */; };
+		CECA6E01252394BA00C19F12 /* MemoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECA6DFF252394BA00C19F12 /* MemoDetailViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +83,8 @@
 		CE71D39C251A3A17006523A6 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 		CE71D3A0251A42C5006523A6 /* HomeViewController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UITableView.swift"; sourceTree = "<group>"; };
 		CECA6DF325220D1600C19F12 /* MemoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDataManager.swift; sourceTree = "<group>"; };
+		CECA6DFE252394BA00C19F12 /* MemoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDetailViewController.swift; sourceTree = "<group>"; };
+		CECA6DFF252394BA00C19F12 /* MemoDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoDetailViewController.xib; sourceTree = "<group>"; };
 		CF6CC96BED513B21927F1E8C /* Pods_RXBasic_MVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RXBasic_MVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEA2CB41218C436E54459595 /* Pods-RXBasic+MVVM-RXBasic+MVVMUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RXBasic+MVVM-RXBasic+MVVMUITests.release.xcconfig"; path = "Target Support Files/Pods-RXBasic+MVVM-RXBasic+MVVMUITests/Pods-RXBasic+MVVM-RXBasic+MVVMUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E01496675FBDCD58957F8489 /* Pods_RXBasic_MVVM_RXBasic_MVVMUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RXBasic_MVVM_RXBasic_MVVMUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,13 +175,14 @@
 		CE71D36025197C2A006523A6 /* RXBasic+MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				CE55887D251A657C00EB8393 /* Util */,
 				CE71D38F2519C1DF006523A6 /* mockData.json */,
 				CE71D36F25197C2D006523A6 /* Info.plist */,
 				CE71D36A25197C2D006523A6 /* Assets.xcassets */,
 				CE71D38325197C7C006523A6 /* App */,
 				CE71D38425197CA4006523A6 /* Home */,
+				CECA6DFB2523946A00C19F12 /* MemoDetail */,
 				CE71D38E2519AE53006523A6 /* HUD */,
+				CE55887D251A657C00EB8393 /* Util */,
 			);
 			path = "RXBasic+MVVM";
 			sourceTree = "<group>";
@@ -258,6 +263,31 @@
 				CE5588D9251E07AE00EB8393 /* HUDManager.swift */,
 			);
 			path = HUD;
+			sourceTree = "<group>";
+		};
+		CECA6DFB2523946A00C19F12 /* MemoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				CECA6DFC2523948700C19F12 /* View */,
+				CECA6DFD2523949000C19F12 /* ViewModel */,
+			);
+			path = MemoDetail;
+			sourceTree = "<group>";
+		};
+		CECA6DFC2523948700C19F12 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CECA6DFE252394BA00C19F12 /* MemoDetailViewController.swift */,
+				CECA6DFF252394BA00C19F12 /* MemoDetailViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CECA6DFD2523949000C19F12 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,6 +377,7 @@
 			files = (
 				CE71D36E25197C2D006523A6 /* LaunchScreen.storyboard in Resources */,
 				CE71D36B25197C2D006523A6 /* Assets.xcassets in Resources */,
+				CECA6E01252394BA00C19F12 /* MemoDetailViewController.xib in Resources */,
 				CE71D36925197C2A006523A6 /* HomeViewController.storyboard in Resources */,
 				CE71D3902519C1E0006523A6 /* mockData.json in Resources */,
 			);
@@ -453,6 +484,7 @@
 				CE29FA05251FA77200530F8B /* FloatingMenuModel.swift in Sources */,
 				CE5588E3251E766300EB8393 /* UIView+Extension.swift in Sources */,
 				CE5588E1251E1CA200EB8393 /* FloatingButton.swift in Sources */,
+				CECA6E00252394BA00C19F12 /* MemoDetailViewController.swift in Sources */,
 				CE71D36625197C2A006523A6 /* HomeViewController.swift in Sources */,
 				CE71D36225197C2A006523A6 /* AppDelegate.swift in Sources */,
 				CE558883251A75E600EB8393 /* Array+Extension.swift in Sources */,
