@@ -80,6 +80,13 @@ class FloatingView: UIView {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
+
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            floatingButton.layer.shadowColor = FloatingMenuModel.Button.shadowColor(isDarkMode)
+            buttons?.forEach {
+                $0.layer.shadowColor = FloatingMenuModel.Button.shadowColor(isDarkMode)
+            }
+        }
     }
     
     private func initialize() {
@@ -94,14 +101,7 @@ class FloatingView: UIView {
         
         setConstraint()
     }
-    
-    func colorAppearanceDidChange() {
-        floatingButton.layer.shadowColor = FloatingMenuModel.Button.shadowColor(isDarkMode)
-        buttons?.forEach {
-            $0.layer.shadowColor = FloatingMenuModel.Button.shadowColor(isDarkMode)
-        }
-    }
-    
+
 }
 
 // MARK: - Delegate & Animation
