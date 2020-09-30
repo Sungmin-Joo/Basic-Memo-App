@@ -20,11 +20,18 @@ final class HUDManager {
         UIApplication.shared.windows.first(where: { $0.isKeyWindow })
     }
 
-    func colorAppearanceDidChange() {
-        floatingView.colorAppearanceDidChange()
+    func clearHUD() {
+        guard let window = window else { return }
+
+        window.subviews.forEach { $0.removeFromSuperview() }
+        isHiddenFloatingButton = true
     }
 
-    func showFloatingView(menuButtons: [UIButton]) {
+}
+
+// MARK: - FloatingView
+extension HUDManager {
+    func setFloatingView(menuButtons: [UIButton]) {
 
         guard let window = window else { return }
 
@@ -33,6 +40,7 @@ final class HUDManager {
 
         floatingView.translatesAutoresizingMaskIntoConstraints = false
         floatingView.childButtons = menuButtons
+        floatingView.alpha = 0
         window.addSubview(floatingView)
 
         NSLayoutConstraint.activate([
@@ -49,13 +57,26 @@ final class HUDManager {
                 equalTo: window.trailingAnchor
             )
         ])
+
     }
 
-    func clearHUD() {
-        guard let window = window else { return }
-
-        window.subviews.forEach { $0.removeFromSuperview() }
-        isHiddenFloatingButton = true
+    func showFloatingView() {
+        UIViewPropertyAnimator.runningPropertyAnimator(
+            withDuration: 0.2,
+            delay: 0,
+            options: [.curveEaseInOut],
+            animations: {
+                self.floatingView.alpha = 1
+        })
     }
 
+    func hideFloatingView() {
+        UIViewPropertyAnimator.runningPropertyAnimator(
+            withDuration: 0.2,
+            delay: 0,
+            options: [.curveEaseInOut],
+            animations: {
+                self.floatingView.alpha = 0
+        })
+    }
 }

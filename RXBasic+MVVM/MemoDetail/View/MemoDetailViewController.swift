@@ -10,37 +10,61 @@ import UIKit
 
 class MemoDetailViewController: UIViewController {
 
+
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var memoTextView: UITextView!
+
+    private var isEditMode: Bool = false {
+        didSet {
+            willchangeMode(isEditMode)
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        navigationController?.isNavigationBarHidden = true
-//        navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.barTintColor = view.backgroundColor
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: Text.edit.rawValue,
+                                                            style: .plain,
+                                                            target: self,
+                                                            action: #selector(editButtonTapped(_:)))
+        isEditMode = false
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-//        navigationController?.navigationBar.barTintColor = view.backgroundColor
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//
-//        self.navigationController?.navigationBar.clipsToBounds = true
-//
-//
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        HUDManager.shared.showFloatingView()
+    }
+}
 
 
+extension MemoDetailViewController {
+
+    @objc func editButtonTapped(_ sender: UIBarButtonItem) {
+        isEditMode.toggle()
     }
 
+    private func willchangeMode(_ isEditMode: Bool) {
+        guard isEditMode else {
+            titleTextField.isEnabled = false
+            memoTextView.isEditable = false
+            navigationItem.rightBarButtonItem?.title = Text.edit.rawValue
+            HUDManager.shared.showFloatingView()
+            return
+        }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        titleTextField.isEnabled = true
+        memoTextView.isEditable = true
+        navigationItem.rightBarButtonItem?.title = Text.save.rawValue
+        HUDManager.shared.hideFloatingView()
     }
-    */
+}
+
+extension MemoDetailViewController {
+
+    enum Text: String {
+        case edit = "Edit"
+        case save = "Save"
+    }
 
 }

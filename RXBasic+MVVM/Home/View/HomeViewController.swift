@@ -32,14 +32,6 @@ final class HomeViewController: UIViewController {
         setupCompletion()
         setupSearchData()
     }
-
-    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-        super.traitCollectionDidChange(previousTraitCollection)
-
-        if self.traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
-            HUDManager.shared.colorAppearanceDidChange()
-        }
-    }
 }
 
 // MARK: - Setup
@@ -56,10 +48,11 @@ extension HomeViewController {
         newForderButton.setImage(newForderImage, for: .normal)
 
         // 상단 네비게이션 바 때문에 HUDManager 사용
-        HUDManager.shared.showFloatingView(menuButtons: [
+        HUDManager.shared.setFloatingView(menuButtons: [
             newMemoButton,
             newForderButton
         ])
+        HUDManager.shared.showFloatingView()
     }
 
     private func setupNavigationBar() {

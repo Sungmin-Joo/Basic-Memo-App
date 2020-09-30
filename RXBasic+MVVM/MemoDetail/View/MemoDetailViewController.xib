@@ -9,6 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MemoDetailViewController" customModule="RXBasic_MVVM" customModuleProvider="target">
             <connections>
+                <outlet property="memoTextView" destination="C61-sM-RxT" id="tnc-iL-sva"/>
+                <outlet property="titleTextField" destination="FNo-uA-zfj" id="drI-Wz-Imb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,28 +22,27 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pjv-EQ-uNG">
                     <rect key="frame" x="16" y="44" width="382" height="48"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPV-cR-rR2">
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" text="Title" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FNo-uA-zfj">
                             <rect key="frame" x="8" y="4" width="366" height="40"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="40" id="AOg-BS-nUA"/>
+                                <constraint firstAttribute="height" constant="40" id="fbs-3m-m30"/>
                             </constraints>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                            <textInputTraits key="textInputTraits" textContentType="organization-title"/>
+                        </textField>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstItem="aPV-cR-rR2" firstAttribute="centerY" secondItem="pjv-EQ-uNG" secondAttribute="centerY" id="YH5-nu-Hbx"/>
-                        <constraint firstItem="aPV-cR-rR2" firstAttribute="leading" secondItem="pjv-EQ-uNG" secondAttribute="leading" constant="8" id="gDa-b5-JKw"/>
-                        <constraint firstAttribute="trailing" secondItem="aPV-cR-rR2" secondAttribute="trailing" constant="8" id="hwh-2M-mcF"/>
+                        <constraint firstAttribute="trailing" secondItem="FNo-uA-zfj" secondAttribute="trailing" constant="8" id="QPf-Yh-hOV"/>
+                        <constraint firstItem="FNo-uA-zfj" firstAttribute="centerY" secondItem="pjv-EQ-uNG" secondAttribute="centerY" id="X0m-bj-k6X"/>
+                        <constraint firstItem="FNo-uA-zfj" firstAttribute="leading" secondItem="pjv-EQ-uNG" secondAttribute="leading" constant="8" id="cut-pi-Mro"/>
                         <constraint firstAttribute="height" constant="48" id="vNR-pl-L7P"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tUA-8L-krV" userLabel="Split Line View">
                     <rect key="frame" x="24" y="92" width="366" height="1"/>
-                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="9eQ-Z1-nIC"/>
                     </constraints>
@@ -49,10 +50,10 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xn3-3q-5JG">
                     <rect key="frame" x="16" y="92" width="382" height="754"/>
                     <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="C61-sM-RxT">
-                            <rect key="frame" x="0.0" y="8" width="382" height="738"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="C61-sM-RxT">
+                            <rect key="frame" x="8" y="8" width="366" height="738"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                             <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -60,10 +61,10 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="C61-sM-RxT" secondAttribute="trailing" id="7AL-nw-u7z"/>
+                        <constraint firstAttribute="trailing" secondItem="C61-sM-RxT" secondAttribute="trailing" constant="8" id="7AL-nw-u7z"/>
                         <constraint firstItem="C61-sM-RxT" firstAttribute="top" secondItem="xn3-3q-5JG" secondAttribute="top" constant="8" id="dgg-zH-Klh"/>
                         <constraint firstAttribute="bottom" secondItem="C61-sM-RxT" secondAttribute="bottom" constant="8" id="e7k-Mg-6t7"/>
-                        <constraint firstItem="C61-sM-RxT" firstAttribute="leading" secondItem="xn3-3q-5JG" secondAttribute="leading" id="jks-XH-OG2"/>
+                        <constraint firstItem="C61-sM-RxT" firstAttribute="leading" secondItem="xn3-3q-5JG" secondAttribute="leading" constant="8" id="jks-XH-OG2"/>
                     </constraints>
                 </view>
             </subviews>
