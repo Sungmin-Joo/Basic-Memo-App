@@ -80,6 +80,13 @@ class FloatingView: UIView {
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
+
+        if traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            floatingButton.layer.shadowColor = FloatingMenuModel.Button.shadowColor(isDarkMode)
+            buttons?.forEach {
+                $0.layer.shadowColor = FloatingMenuModel.Button.shadowColor(isDarkMode)
+            }
+        }
     }
     
     private func initialize() {
@@ -94,14 +101,7 @@ class FloatingView: UIView {
         
         setConstraint()
     }
-    
-    func colorAppearanceDidChange() {
-        floatingButton.layer.shadowColor = FloatingMenuModel.Button.shadowColor(isDarkMode)
-        buttons?.forEach {
-            $0.layer.shadowColor = FloatingMenuModel.Button.shadowColor(isDarkMode)
-        }
-    }
-    
+
 }
 
 // MARK: - Delegate & Animation
@@ -113,7 +113,9 @@ extension FloatingView: FloatingButtonDelegate {
             $0.alpha = 0
             $0.isHidden = false
         }
-        btnsBottomConstraints?.forEach { $0.constant = FloatingMenuModel.Button.Margin.bottom }
+        btnsBottomConstraints?.forEach {
+            $0.constant = FloatingMenuModel.Button.Margin.bottom
+        }
         
         UIViewPropertyAnimator.runningPropertyAnimator(
             withDuration: 0.2,
@@ -135,7 +137,6 @@ extension FloatingView: FloatingButtonDelegate {
             delay: 0,
             options: [.curveEaseInOut],
             animations: {
-                
                 self.buttons?.forEach { $0.alpha = 1 }
                 self.btnsBottomConstraints?
                     .enumerated()
@@ -161,14 +162,15 @@ extension FloatingView: FloatingButtonDelegate {
             animations: {
                 self.dimmedButton.alpha = 0
                 self.buttons?.forEach { $0.alpha = 0 }
-                self.btnsBottomConstraints?.forEach { $0.constant = FloatingMenuModel.Button.Margin.bottom }
+                self.btnsBottomConstraints?.forEach {
+                    $0.constant = FloatingMenuModel.Button.Margin.bottom
+                }
                 self.layoutIfNeeded()
         }, completion: { _ in
             self.buttons?.forEach { $0.isHidden = true }
             self.dimmedButton.isHidden = true
             
-        }
-        )
+        })
     }
 }
 

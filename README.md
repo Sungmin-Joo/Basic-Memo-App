@@ -8,6 +8,10 @@
 ~2020/12/31 (업무량이 많아지면 적당히 조절... SwiftUI도 병행 공부중이라 늦어질 수 있음)
 
 ## 스펙 진행 상황  
-- 2020.10.27  
-    Home, Floating Button UI 구현  
-    <img src="https://user-images.githubusercontent.com/46941349/94368068-39c7b200-011d-11eb-9c95-a96475b8584c.gif">
+- 2020.09.27  
+    Home, Floating Button UI 구현   
+    <img src="https://user-images.githubusercontent.com/46941349/94368068-39c7b200-011d-11eb-9c95-a96475b8584c.gif">   
+    
+- 2020.09.30   
+    Search, Edit(view, interaction)  
+    <img src="https://user-images.githubusercontent.com/46941349/94694448-d1244380-036f-11eb-8ee2-b295c248f2d0.gif">
