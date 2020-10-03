@@ -11,36 +11,47 @@ import UIKit
 final class HUDManager {
 
     static let shared = HUDManager()
-    private init() {}
+    private init() {
+        setFloatingView()
+    }
 
     private let floatingView = FloatingView()
-    private var isHiddenFloatingButton = true
 
     private var window: UIWindow? {
         UIApplication.shared.windows.first(where: { $0.isKeyWindow })
     }
 
-    func clearHUD() {
-        guard let window = window else { return }
-
-        window.subviews.forEach { $0.removeFromSuperview() }
-        isHiddenFloatingButton = true
-    }
-
 }
 
-// MARK: - FloatingView
+// MARK: - Setup
 extension HUDManager {
-    func setFloatingView(menuButtons: [UIButton]) {
 
-        guard let window = window else { return }
+    private func setFloatingView() {
 
-        guard isHiddenFloatingButton else { return }
-        isHiddenFloatingButton = false
+        let newMemoImage = HomeConst.Image.newMemo.getImage()
+        let newMemoButton = UIButton()
+        newMemoButton.setImage(newMemoImage, for: .normal)
+        newMemoButton.addTarget(self,
+                                action: #selector(newMemoButtonTapped),
+                                for: .touchUpInside)
+
+        let newForderImage = HomeConst.Image.newFolder.getImage()
+        let newForderButton = UIButton()
+        newForderButton.setImage(newForderImage, for: .normal)
+        newForderButton.addTarget(self,
+                                  action: #selector(newForderButtonTapped),
+                                  for: .touchUpInside)
 
         floatingView.translatesAutoresizingMaskIntoConstraints = false
-        floatingView.childButtons = menuButtons
+        floatingView.childButtons = [newMemoButton, newForderButton]
         floatingView.alpha = 0
+
+        layoutFloatingView()
+    }
+
+    private func layoutFloatingView() {
+        guard let window = window else { return }
+
         window.addSubview(floatingView)
 
         NSLayoutConstraint.activate([
@@ -57,8 +68,12 @@ extension HUDManager {
                 equalTo: window.trailingAnchor
             )
         ])
-
     }
+
+}
+
+// MARK: - Public method
+extension HUDManager {
 
     func showFloatingView() {
         UIViewPropertyAnimator.runningPropertyAnimator(
@@ -78,5 +93,40 @@ extension HUDManager {
             animations: {
                 self.floatingView.alpha = 0
         })
+    }
+
+}
+
+// MARK: - Button action
+extension HUDManager {
+
+    @objc func newMemoButtonTapped() {
+        floatingView.floatingButton.isSelected.toggle()
+        
+    }
+
+    @objc func newForderButtonTapped() {
+        floatingView.floatingButton.isSelected.toggle()
+
+        let alert = UIAlertController(title: "New Folder",
+                                      message: "input folder name",
+                                      preferredStyle: .alert)
+        let register = UIAlertAction(title: "register", style: .default) { _ in
+            let folderName = alert.textFields?.first?.text
+            debugPrint(folderName)
+        }
+
+        let cancel = UIAlertAction(title: "cancel", style: .cancel)
+
+        alert.addTextField { textField in
+            textField.placeholder = "ex) Swift Study"
+        }
+
+
+        alert.addAction(register)
+        alert.addAction(cancel)
+
+        window?.rootViewController?.present(alert, animated: true, completion: nil)
+
     }
 }

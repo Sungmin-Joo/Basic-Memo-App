@@ -12,7 +12,7 @@ class FloatingView: UIView {
     
     typealias ViewModelType = FloatingMenuModel.ViewModel.FloatingView
     
-    private let floatingButton: FloatingButton = {
+    let floatingButton: FloatingButton = {
         let button = FloatingButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

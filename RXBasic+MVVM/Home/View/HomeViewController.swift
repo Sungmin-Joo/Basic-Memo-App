@@ -26,34 +26,16 @@ final class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupFloatingView()
         setupNavigationBar()
         setupTableView()
         setupCompletion()
         setupSearchData()
+        HUDManager.shared.showFloatingView()
     }
 }
 
 // MARK: - Setup
 extension HomeViewController {
-
-    private func setupFloatingView() {
-
-        let newMemoImage = HomeConst.Image.newMemo.getImage()
-        let newMemoButton = UIButton()
-        newMemoButton.setImage(newMemoImage, for: .normal)
-
-        let newForderImage = HomeConst.Image.newFolder.getImage()
-        let newForderButton = UIButton()
-        newForderButton.setImage(newForderImage, for: .normal)
-
-        // 상단 네비게이션 바 때문에 HUDManager 사용
-        HUDManager.shared.setFloatingView(menuButtons: [
-            newMemoButton,
-            newForderButton
-        ])
-        HUDManager.shared.showFloatingView()
-    }
 
     private func setupNavigationBar() {
         let searchBar = UISearchBar(frame: .zero)
