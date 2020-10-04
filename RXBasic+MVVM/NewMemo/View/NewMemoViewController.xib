@@ -9,6 +9,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewMemoViewController" customModule="RXBasic_MVVM" customModuleProvider="target">
             <connections>
+                <outlet property="bodyTextView" destination="QC3-b7-IE5" id="GRB-Kr-Hdg"/>
+                <outlet property="titleTextField" destination="Fdd-kB-YoY" id="bbT-y9-NRv"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

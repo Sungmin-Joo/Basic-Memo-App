@@ -67,24 +67,6 @@ extension HomeViewController {
             self?.tableView.reloadData()
         }
 
-        // For test
-        guard let testViewModel = viewModel as? HomeViewModel else {
-            return
-        }
-
-        testViewModel.setupTestData()
-    }
-}
-
-// MARK: - Action
-extension HomeViewController {
-
-    @objc func searchButtonPressed(_ sender: Any) {
-
-    }
-
-    @objc func menuButtonPressed(_ sender: Any) {
-
     }
 }
 
