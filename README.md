@@ -15,3 +15,7 @@
 - 2020.09.30   
     Search, Edit(view, interaction)  
     <img src="https://user-images.githubusercontent.com/46941349/94694448-d1244380-036f-11eb-8ee2-b295c248f2d0.gif">
+
+- 2020.10.04  
+    New Memo, New Folder UI 구현  
+    <img src="https://user-images.githubusercontent.com/46941349/95006890-2bf5bd80-0644-11eb-97f5-5bc34e2d86a7.gif">  
