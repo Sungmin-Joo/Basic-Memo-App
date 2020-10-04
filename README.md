@@ -19,3 +19,7 @@
 - 2020.10.04  
     New Memo, New Folder UI 구현  
     <img src="https://user-images.githubusercontent.com/46941349/95006890-2bf5bd80-0644-11eb-97f5-5bc34e2d86a7.gif">  
+
+- 2020.10.05  
+    DB 연동 프로토타입 개발 완료  
+    <img src="https://user-images.githubusercontent.com/46941349/95022993-72cfcb80-06b5-11eb-8348-3c4f93e87c45.gif">
