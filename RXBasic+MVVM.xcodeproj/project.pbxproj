@@ -34,6 +34,9 @@
 		CE71D3952519EBC2006523A6 /* HomeViewController+SearchPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D3942519EBC2006523A6 /* HomeViewController+SearchPhase.swift */; };
 		CE71D39E251A3A17006523A6 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D39C251A3A17006523A6 /* MemoCell.swift */; };
 		CE71D3A1251A42C5006523A6 /* HomeViewController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D3A0251A42C5006523A6 /* HomeViewController+UITableView.swift */; };
+		CEA84BED25297B2F00ABABB5 /* NewMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA84BEB25297B2F00ABABB5 /* NewMemoViewController.swift */; };
+		CEA84BEE25297B2F00ABABB5 /* NewMemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA84BEC25297B2F00ABABB5 /* NewMemoViewController.xib */; };
+		CEA84BF025297B3B00ABABB5 /* NewMemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA84BEF25297B3B00ABABB5 /* NewMemoViewModel.swift */; };
 		CECA6DF425220D1600C19F12 /* MemoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA6DF325220D1600C19F12 /* MemoDataManager.swift */; };
 		CECA6E00252394BA00C19F12 /* MemoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA6DFE252394BA00C19F12 /* MemoDetailViewController.swift */; };
 		CECA6E01252394BA00C19F12 /* MemoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECA6DFF252394BA00C19F12 /* MemoDetailViewController.xib */; };
@@ -82,6 +85,9 @@
 		CE71D3942519EBC2006523A6 /* HomeViewController+SearchPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+SearchPhase.swift"; sourceTree = "<group>"; };
 		CE71D39C251A3A17006523A6 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 		CE71D3A0251A42C5006523A6 /* HomeViewController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UITableView.swift"; sourceTree = "<group>"; };
+		CEA84BEB25297B2F00ABABB5 /* NewMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemoViewController.swift; sourceTree = "<group>"; };
+		CEA84BEC25297B2F00ABABB5 /* NewMemoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewMemoViewController.xib; sourceTree = "<group>"; };
+		CEA84BEF25297B3B00ABABB5 /* NewMemoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemoViewModel.swift; sourceTree = "<group>"; };
 		CECA6DF325220D1600C19F12 /* MemoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDataManager.swift; sourceTree = "<group>"; };
 		CECA6DFE252394BA00C19F12 /* MemoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDetailViewController.swift; sourceTree = "<group>"; };
 		CECA6DFF252394BA00C19F12 /* MemoDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoDetailViewController.xib; sourceTree = "<group>"; };
@@ -181,6 +187,7 @@
 				CE71D38325197C7C006523A6 /* App */,
 				CE71D38425197CA4006523A6 /* Home */,
 				CECA6DFB2523946A00C19F12 /* MemoDetail */,
+				CEA84BE825297AF400ABABB5 /* NewMemo */,
 				CE71D38E2519AE53006523A6 /* HUD */,
 				CE55887D251A657C00EB8393 /* Util */,
 			);
@@ -263,6 +270,32 @@
 				CE5588D9251E07AE00EB8393 /* HUDManager.swift */,
 			);
 			path = HUD;
+			sourceTree = "<group>";
+		};
+		CEA84BE825297AF400ABABB5 /* NewMemo */ = {
+			isa = PBXGroup;
+			children = (
+				CEA84BE925297B0D00ABABB5 /* View */,
+				CEA84BEA25297B1800ABABB5 /* ViewModel */,
+			);
+			path = NewMemo;
+			sourceTree = "<group>";
+		};
+		CEA84BE925297B0D00ABABB5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CEA84BEB25297B2F00ABABB5 /* NewMemoViewController.swift */,
+				CEA84BEC25297B2F00ABABB5 /* NewMemoViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CEA84BEA25297B1800ABABB5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				CEA84BEF25297B3B00ABABB5 /* NewMemoViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		CECA6DFB2523946A00C19F12 /* MemoDetail */ = {
@@ -380,6 +413,7 @@
 				CECA6E01252394BA00C19F12 /* MemoDetailViewController.xib in Resources */,
 				CE71D36925197C2A006523A6 /* HomeViewController.storyboard in Resources */,
 				CE71D3902519C1E0006523A6 /* mockData.json in Resources */,
+				CEA84BEE25297B2F00ABABB5 /* NewMemoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,9 +516,11 @@
 				CE71D38C25199C0A006523A6 /* MemoModel.swift in Sources */,
 				CE5588DC251E0AAA00EB8393 /* ThreadUtil.swift in Sources */,
 				CE29FA05251FA77200530F8B /* FloatingMenuModel.swift in Sources */,
+				CEA84BF025297B3B00ABABB5 /* NewMemoViewModel.swift in Sources */,
 				CE5588E3251E766300EB8393 /* UIView+Extension.swift in Sources */,
 				CE5588E1251E1CA200EB8393 /* FloatingButton.swift in Sources */,
 				CECA6E00252394BA00C19F12 /* MemoDetailViewController.swift in Sources */,
+				CEA84BED25297B2F00ABABB5 /* NewMemoViewController.swift in Sources */,
 				CE71D36625197C2A006523A6 /* HomeViewController.swift in Sources */,
 				CE71D36225197C2A006523A6 /* AppDelegate.swift in Sources */,
 				CE558883251A75E600EB8393 /* Array+Extension.swift in Sources */,

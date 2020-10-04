@@ -102,7 +102,14 @@ extension HUDManager {
 
     @objc func newMemoButtonTapped() {
         floatingView.floatingButton.isSelected.toggle()
-        
+        let vc = NewMemoViewController()
+
+        guard let navigationVC = window?.rootViewController as? UINavigationController else {
+            return
+        }
+
+        navigationVC.present(vc, animated: true)
+//        navigationVC.pushViewController(vc, animated: true)
     }
 
     @objc func newForderButtonTapped() {
@@ -111,12 +118,12 @@ extension HUDManager {
         let alert = UIAlertController(title: "New Folder",
                                       message: "input folder name",
                                       preferredStyle: .alert)
-        let register = UIAlertAction(title: "register", style: .default) { _ in
+        let register = UIAlertAction(title: "Done", style: .default) { _ in
             let folderName = alert.textFields?.first?.text
             debugPrint(folderName)
         }
 
-        let cancel = UIAlertAction(title: "cancel", style: .cancel)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel)
 
         alert.addTextField { textField in
             textField.placeholder = "ex) Swift Study"
