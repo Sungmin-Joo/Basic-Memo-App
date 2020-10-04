@@ -16,10 +16,34 @@ final class HomeViewModel: ViewDataContainable {
         case list
     }
 
-    let searchResultCellModels = BehaviorSubject<[MemoCellModel]>(value: [])
     private var cellModels: [HomeSectionType: [CellDataContainable]] = [:]
     private var preSearchData: String?
+    private var disposeBag = DisposeBag()
+
+    let searchResultCellModels = BehaviorSubject<[MemoCellModel]>(value: [])
+    let memoListObservable = BehaviorSubject<[MemoCellModel]>(value: [])
     var didFetchViewData: (() -> Void)?
+
+    init() {
+        setupObservable()
+    }
+
+    private func setupObservable() {
+        MemoDBManager.shared.memoObservable
+            .subscribe(onNext: { memoList in
+                self.configureMemoList(memoList)
+            })
+            .disposed(by: disposeBag)
+    }
+
+    private func configureMemoList(_ list: [MemoModel]) {
+        cellModels[.list] = list.map { MemoCellModel(text: $0.title) }
+
+        cellModels[.pinned] = list.filter { $0.isPinned }
+            .map { MemoCellModel(text: $0.title) }
+
+        didFetchViewData?()
+    }
 
 }
 
@@ -77,54 +101,28 @@ extension HomeViewModel: SearchDataContainable {
 
         // 태그와 제목 검색
         // 결과 데이터는 시간순 정렬
-
-        let searchResult = MemoDataManager.shared.memoDatas
-            .filter { $0.title.lowercased().components(separatedBy: " ").contains(find: searchText) }
-            .sorted { $0 < $1 }
-
-
-        // 추후 set 사용하여 통합
-        let tagResult = MemoDataManager.shared.memoDatas
-            .filter { $0.tag.map { $0.lowercased() }.contains(find: searchText) }
-            .sorted { $0 < $1 }
-
-
-        searchResultCellModels.onNext(
-            searchResult.map { MemoCellModel(text: $0.title) }
-        )
-    }
-}
-
-// MARK: - 테스트 데이터 용 함수
-extension HomeViewModel {
-    func decodeJsonData<T: Codable>(jsonFileName fileName: String) -> T {
-        var data = Data()
-        let filename = "\(fileName).json"
-
-        guard let file = Bundle.main.url(forResource: filename, withExtension: nil) else {
-            fatalError("[Error]: decodeJsonData - Json File Not Found")
-        }
-
         do {
-            data = try Data(contentsOf: file)
-            return try JSONDecoder().decode(T.self, from: data)
+            let MemoModels = try MemoDBManager.shared.memoObservable.value()
+
+            let searchResult = MemoModels.filter {
+                $0.title.lowercased().components(separatedBy: " ").contains(find: searchText)
+            }.sorted { $0 < $1 }
+
+
+            // 추후 set 사용하여 통합
+            let tagResult = MemoModels
+                .filter { $0.tag.map { $0.lowercased() }.contains(find: searchText) }
+                .sorted { $0 < $1 }
+
+
+            searchResultCellModels.onNext(
+                searchResult.map { MemoCellModel(text: $0.title) }
+            )
         } catch {
-            fatalError("[Error]: \(error)")
+            Logger.log("memoObservable Error", error, level: .error)
         }
+
     }
-
-    func setupTestData() {
-
-        cellModels[.list] = MemoDataManager.shared.memoDatas
-            .map { MemoCellModel(text: $0.title) }
-
-        cellModels[.pinned] = MemoDataManager.shared.memoDatas
-            .filter {$0.isPinned }
-            .map { MemoCellModel(text: $0.title) }
-
-        didFetchViewData?()
-    }
-
 }
 
 private extension BidirectionalCollection where Element: StringProtocol {

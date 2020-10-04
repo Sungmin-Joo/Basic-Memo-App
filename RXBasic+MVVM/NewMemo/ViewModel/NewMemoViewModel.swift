@@ -9,5 +9,13 @@
 import Foundation
 
 class NewMemoViewModel {
-
+    func registMemo(_ title: String, _ body: String) {
+        MemoDBManager.shared.insert(
+            title: title,
+            body: body,
+            tag: ["123", "456"],
+            isPinned: false,
+            pinnedIndex: -1
+        )
+    }
 }

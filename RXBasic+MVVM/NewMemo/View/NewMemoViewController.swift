@@ -6,9 +6,15 @@
 //  Copyright © 2020 sungmin.joo. All rights reserved.
 //
 
-import UIKit
+import RxSwift
 
 class NewMemoViewController: UIViewController {
+
+    @IBOutlet weak var titleTextField: UITextField!
+    @IBOutlet weak var bodyTextView: UITextView!
+
+    private let viewModel = NewMemoViewModel()
+    private let disposeBag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,8 +27,9 @@ class NewMemoViewController: UIViewController {
 
     @IBAction func doneButtonTapped(_ sender: Any) {
         // Memo 저장
-        dismiss(animated: true) {
-
-        }
+        let title = titleTextField.text ?? ""
+        let body = bodyTextView.text ?? ""
+        viewModel.registMemo(title, body)
+        dismiss(animated: true)
     }
 }

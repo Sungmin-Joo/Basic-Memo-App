@@ -30,14 +30,14 @@
 		CE71D37925197C2E006523A6 /* RXBasic_MVVMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D37825197C2E006523A6 /* RXBasic_MVVMUITests.swift */; };
 		CE71D388251995C2006523A6 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D387251995C2006523A6 /* HomeViewModel.swift */; };
 		CE71D38C25199C0A006523A6 /* MemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D38B25199C0A006523A6 /* MemoModel.swift */; };
-		CE71D3902519C1E0006523A6 /* mockData.json in Resources */ = {isa = PBXBuildFile; fileRef = CE71D38F2519C1DF006523A6 /* mockData.json */; };
 		CE71D3952519EBC2006523A6 /* HomeViewController+SearchPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D3942519EBC2006523A6 /* HomeViewController+SearchPhase.swift */; };
 		CE71D39E251A3A17006523A6 /* MemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D39C251A3A17006523A6 /* MemoCell.swift */; };
 		CE71D3A1251A42C5006523A6 /* HomeViewController+UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71D3A0251A42C5006523A6 /* HomeViewController+UITableView.swift */; };
 		CEA84BED25297B2F00ABABB5 /* NewMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA84BEB25297B2F00ABABB5 /* NewMemoViewController.swift */; };
 		CEA84BEE25297B2F00ABABB5 /* NewMemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEA84BEC25297B2F00ABABB5 /* NewMemoViewController.xib */; };
 		CEA84BF025297B3B00ABABB5 /* NewMemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA84BEF25297B3B00ABABB5 /* NewMemoViewModel.swift */; };
-		CECA6DF425220D1600C19F12 /* MemoDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA6DF325220D1600C19F12 /* MemoDataManager.swift */; };
+		CEA84BF22529A71F00ABABB5 /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA84BF12529A71F00ABABB5 /* DBManager.swift */; };
+		CEA84BF42529A73800ABABB5 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA84BF32529A73800ABABB5 /* Logger.swift */; };
 		CECA6E00252394BA00C19F12 /* MemoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA6DFE252394BA00C19F12 /* MemoDetailViewController.swift */; };
 		CECA6E01252394BA00C19F12 /* MemoDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECA6DFF252394BA00C19F12 /* MemoDetailViewController.xib */; };
 /* End PBXBuildFile section */
@@ -81,14 +81,14 @@
 		CE71D37A25197C2E006523A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE71D387251995C2006523A6 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		CE71D38B25199C0A006523A6 /* MemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoModel.swift; sourceTree = "<group>"; };
-		CE71D38F2519C1DF006523A6 /* mockData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mockData.json; sourceTree = "<group>"; };
 		CE71D3942519EBC2006523A6 /* HomeViewController+SearchPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+SearchPhase.swift"; sourceTree = "<group>"; };
 		CE71D39C251A3A17006523A6 /* MemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCell.swift; sourceTree = "<group>"; };
 		CE71D3A0251A42C5006523A6 /* HomeViewController+UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+UITableView.swift"; sourceTree = "<group>"; };
 		CEA84BEB25297B2F00ABABB5 /* NewMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemoViewController.swift; sourceTree = "<group>"; };
 		CEA84BEC25297B2F00ABABB5 /* NewMemoViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewMemoViewController.xib; sourceTree = "<group>"; };
 		CEA84BEF25297B3B00ABABB5 /* NewMemoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMemoViewModel.swift; sourceTree = "<group>"; };
-		CECA6DF325220D1600C19F12 /* MemoDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDataManager.swift; sourceTree = "<group>"; };
+		CEA84BF12529A71F00ABABB5 /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		CEA84BF32529A73800ABABB5 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		CECA6DFE252394BA00C19F12 /* MemoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoDetailViewController.swift; sourceTree = "<group>"; };
 		CECA6DFF252394BA00C19F12 /* MemoDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoDetailViewController.xib; sourceTree = "<group>"; };
 		CF6CC96BED513B21927F1E8C /* Pods_RXBasic_MVVM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RXBasic_MVVM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +144,7 @@
 				CE558882251A75E600EB8393 /* Array+Extension.swift */,
 				CE5588E2251E766300EB8393 /* UIView+Extension.swift */,
 				CE5588DB251E0AAA00EB8393 /* ThreadUtil.swift */,
+				CEA84BF32529A73800ABABB5 /* Logger.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -181,10 +182,10 @@
 		CE71D36025197C2A006523A6 /* RXBasic+MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				CE71D38F2519C1DF006523A6 /* mockData.json */,
 				CE71D36F25197C2D006523A6 /* Info.plist */,
 				CE71D36A25197C2D006523A6 /* Assets.xcassets */,
 				CE71D38325197C7C006523A6 /* App */,
+				CE71D38A25199BE3006523A6 /* Model */,
 				CE71D38425197CA4006523A6 /* Home */,
 				CECA6DFB2523946A00C19F12 /* MemoDetail */,
 				CEA84BE825297AF400ABABB5 /* NewMemo */,
@@ -220,7 +221,6 @@
 			children = (
 				CE71D3852519918A006523A6 /* View */,
 				CE71D38625199190006523A6 /* ViewModel */,
-				CE71D38A25199BE3006523A6 /* Model */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -258,7 +258,7 @@
 			isa = PBXGroup;
 			children = (
 				CE71D38B25199C0A006523A6 /* MemoModel.swift */,
-				CECA6DF325220D1600C19F12 /* MemoDataManager.swift */,
+				CEA84BF12529A71F00ABABB5 /* DBManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -412,7 +412,6 @@
 				CE71D36B25197C2D006523A6 /* Assets.xcassets in Resources */,
 				CECA6E01252394BA00C19F12 /* MemoDetailViewController.xib in Resources */,
 				CE71D36925197C2A006523A6 /* HomeViewController.storyboard in Resources */,
-				CE71D3902519C1E0006523A6 /* mockData.json in Resources */,
 				CEA84BEE25297B2F00ABABB5 /* NewMemoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,6 +519,7 @@
 				CE5588E3251E766300EB8393 /* UIView+Extension.swift in Sources */,
 				CE5588E1251E1CA200EB8393 /* FloatingButton.swift in Sources */,
 				CECA6E00252394BA00C19F12 /* MemoDetailViewController.swift in Sources */,
+				CEA84BF42529A73800ABABB5 /* Logger.swift in Sources */,
 				CEA84BED25297B2F00ABABB5 /* NewMemoViewController.swift in Sources */,
 				CE71D36625197C2A006523A6 /* HomeViewController.swift in Sources */,
 				CE71D36225197C2A006523A6 /* AppDelegate.swift in Sources */,
@@ -531,10 +531,10 @@
 				CE71D3952519EBC2006523A6 /* HomeViewController+SearchPhase.swift in Sources */,
 				CE558881251A685B00EB8393 /* BaseCell.swift in Sources */,
 				CE71D36425197C2A006523A6 /* SceneDelegate.swift in Sources */,
+				CEA84BF22529A71F00ABABB5 /* DBManager.swift in Sources */,
 				CE71D388251995C2006523A6 /* HomeViewModel.swift in Sources */,
 				CE71D39E251A3A17006523A6 /* MemoCell.swift in Sources */,
 				CE5588DA251E07AE00EB8393 /* HUDManager.swift in Sources */,
-				CECA6DF425220D1600C19F12 /* MemoDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

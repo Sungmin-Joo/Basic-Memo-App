@@ -36,3 +36,15 @@ protocol ViewModelBindable {
     var viewModel: CellDataContainable? { get set }
     func didSetViewModel(_ viewModel: CellDataContainable?)
 }
+
+// DB Storable protocol
+protocol Storable {
+    var tableName: String { get }
+
+    var createQuery: String { get }
+    var readQuery: String { get }
+    var insertQuery: String { get }
+    var updateQuery: String { get }
+    var truncateQuery: String { get }
+    var deleteQuery: String { get }
+}
